@@ -38,16 +38,12 @@ export const initializePixiApp = async (canvas: HTMLCanvasElement) => {
   const aspectRatio = 16 / 9;
   const resizeCanvas = () => {
     if (canvas && app) {
-      // here i take current width and height
       const parent = canvas.parentElement as HTMLElement;
       const newWidth = parent.clientWidth;
       const newHeight = parent.clientHeight;
       // call draw scene resize canvas
       scene.resize();
 
-      /**
-       * setting scale factor upon googling didnt made hot water
-       */
       let scaleFactor;
       if (newWidth / newHeight >= aspectRatio) {
           scaleFactor = newHeight / (app.renderer.height / app.stage.scale.y);
